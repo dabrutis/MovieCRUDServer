@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Node.js on Azure Template</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>a-test-node-c3-static</title>
 </head>
 <body>
-	<h1>Node.js and Express Hosted on Microsoft Azure Template</h1>
-	<p>This repository is a template that can be used to create a Node.js and Express website for hosting on Microsoft 
-	Azure.</p>
+	<h1>MovieCRUD</h1>
+
+	<script>
+		alert( 'Fetching' );
+		getFavoritePlaces()
+	
+		async function getFavoritePlaces() {
+			  const response = await fetch("https://a-test-node-c3.azurewebsites.net/api/favorite-places");
+			  //https://moviecrudserverabrutis.azurewebsites.net/
+			  const places = await response.json();
+			  console.log(places);
+		}
+	</script>
+
+	<script>
+	alert( 'Fetching 2' );
+	getFavoritePlaces()
+
+	async function getFavoritePlaces() {
+		  const response = await fetch("/test");
+		  //https://moviecrudserverabrutis.azurewebsites.net/
+		  const testResponse = await response.text();
+		  console.log(testResponse);
+	}
+</script>
 </body>
 </html>
