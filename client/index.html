@@ -1,34 +1,15 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>a-test-node-c3-static</title>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MovieCRUD</title>
 </head>
 <body>
-	<h1>MovieCRUD</h1>
+	<h1>MovieCRUDLite</h1>
+	<p>This application utilizes MongoDB Atlas and supports the follow CRUD features:</p>
+	<a href="create.html">Create</a><br />
+	<a href="read">Read</a><br /><br />
 
-	<script>
-		alert( 'Fetching' );
-		getFavoritePlaces()
-	
-		async function getFavoritePlaces() {
-			  const response = await fetch("https://a-test-node-c3.azurewebsites.net/api/favorite-places");
-			  //https://moviecrudserverabrutis.azurewebsites.net/
-			  const places = await response.json();
-			  console.log(places);
-		}
-	</script>
-
-	<script>
-	alert( 'Fetching 2' );
-	getFavoritePlaces()
-
-	async function getFavoritePlaces() {
-		  const response = await fetch("/test");
-		  //https://moviecrudserverabrutis.azurewebsites.net/
-		  const testResponse = await response.text();
-		  console.log(testResponse);
-	}
-</script>
+	<em>Todo: Implement your own MongoDB Atlas Organization, Project, Database Cluster, Database, and Collection.</em><br />
+	<em>Todo: Implement and fully test the Update and Delete function of CRUD.</em>
 </body>
 </html>
