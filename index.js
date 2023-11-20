@@ -46,10 +46,47 @@ app.get("/read", function(request, response) {
 	})
 })
 
-// Todo: Implement your own MongoDB Atlas Organization, Project, Database Cluster, Database, and Collection.
-// Todo: Implement and test the Update and Delete functionCRUD.
+app.post("/delete", async function(req, res){
+    try {
+        const movieId = req.body.id;
+        const deletedMovie = await Movie.findOneAndDelete({_id: movieId});
+        if(deletedMovie) {
+            console.log("Movie deleted successfully");
+        } else {
+            console.log("Movie not found");
+        }
+        res.redirect("/");
+    } catch (err) {
+        console.log("Error deleting movie:", err);
+        res.redirect("/");
+    }
+});
 
-// End MongoDB Atlas ********
+app.post("/update", async function(req, res){
+    try {
+        const movieId = req.body.id;
+        const updatedMovie = await Movie.findOneAndUpdate(
+            { _id: movieId }, 
+            { 
+                $set: { 
+                    title: req.body.newTitle,
+                    comments: req.body.newComments
+                } 
+            },
+            { new: true }
+        );
+
+        if(updatedMovie) {
+            console.log("Movie updated successfully:", updatedMovie);
+        } else {
+            console.log("Movie not found");
+        }
+        res.redirect("/");
+    } catch (err) {
+        console.log("Error updating movie:", err);
+        res.redirect("/");
+    }
+});
 
 const port = process.env.PORT || 3000
 app.get('/test', function(request, response) {

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Movie</title>
+</head>
+<body>
+    <h1>Update Movie</h1>
+    <form class="container" method="post" action="/update">
+        <label for="movieId">Movie ID to update:</label>
+        <input type="text" id="movieId" name="id" required><br />
+        <label for="newTitle">New Title:</label>
+        <input type="text" id="newTitle" name="newTitle"><br />
+        <label for="newComments">New Comments:</label>
+        <input type="text" id="newComments" name="newComments"><br />
+        <button>Update Movie in MongoDB Atlas</button>
+    </form>
+</body>
+</html>
